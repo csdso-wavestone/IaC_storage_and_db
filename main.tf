@@ -81,6 +81,7 @@ resource "azurerm_mysql_flexible_database" "mysqldb1" {
  collation    =  "utf8_unicode_ci" 
   depends_on = [ azurerm_mysql_flexible_server.serverformation1 ] 
 } 
+
 # Configure firewall to open access 
 resource "azurerm_mysql_flexible_server_firewall_rule" "mysqlfwrule1" { 
  name        =  "mysqlfwrule1-iac" 
@@ -90,3 +91,4 @@ resource "azurerm_mysql_flexible_server_firewall_rule" "mysqlfwrule1" {
  end_ip_address   =  "255.255.255.255" 
  depends_on = [ azurerm_mysql_flexible_server.serverformation1, 
  azurerm_mysql_flexible_database.mysqldb1 ] 
+}
